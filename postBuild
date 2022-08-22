@@ -1,3 +1,0 @@
-npm run build:labextension
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
-jupyter nbextension enable --py widgetsnbextension

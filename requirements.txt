@@ -15,4 +15,4 @@ tqdm==4.64.0
 fastai==2.7.9
 fastbook==0.0.28
 voila==0.3.6
-ipywidgets
+ipywidgets==7.7.0

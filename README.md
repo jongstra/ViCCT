@@ -25,14 +25,14 @@ To perform crowd counting with ViCCT, we first split an image of any resolution 
 
 
 ### Python Installation
-Install Python 3.9, and the pip package manager for Python 3.9, by running the following command in your terminal.
+Install Python 3.10, and the pip package manager for Python 3.10, by running the following command in your terminal.
 
 For Linux:
-- `sudo apt install python3.9`
+- `sudo apt install python3.10`
 
 For Mac OSX:
-- `brew install python@3.9`
-- `python3.9 -m pip install pip --upgrade`
+- `brew install python@3.10`
+- `python3.10 -m pip install pip --upgrade`
 
 
 ### Git installation
@@ -53,7 +53,7 @@ Clone (copy) this repository to a directory of your own choosing on your compute
 
 We want to set up a Python '[virtual environment](https://docs.python.org/3/library/venv.html#:~:text=A%20virtual%20environment%20is%20a,part%20of%20your%20operating%20system.)' for this repositoty, and install all necessary Python packages in this environment
 - Navigate your terminal to the folder where you just cloned the ViCCT repository: `cd ViCCT`
-- `python3.9 -m venv venv`
+- `python3.10 -m venv venv`
 - `source venv/bin/activate`
 - `pip install -r requirements.txt`
 

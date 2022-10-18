@@ -49,10 +49,10 @@ For Mac OSX:
 
 ### Environment Installation (Linux & Mac OSX)
 Clone (copy) this repository to a directory of your own choosing on your computer, by running the following command in your terminal:
-- `git clone https://github.com/Wightslayer/ViCCT.git`
+- `git clone https://github.com/jongstra/ViCCT.git`
 
-We want to set up a Python '[virtual environment](https://docs.python.org/3/library/venv.html#:~:text=A%20virtual%20environment%20is%20a,part%20of%20your%20operating%20system.)' for this repositoty, and install all necessary Python packages in this environment
-- Navigate your terminal to the folder where you just cloned the ViCCT repository: `cd ViCCT`
+We want to set up a Python '[virtual environment](https://docs.python.org/3/library/venv.html#:~:text=A%20virtual%20environment%20is%20a,part%20of%20your%20operating%20system.)' for this repository, and install all necessary Python packages in this environment.
+- Navigate your terminal to the folder where you just cloned the ViCCT repository (`cd ViCCT`), and run the following commands:
 - `python3.10 -m venv venv`
 - `source venv/bin/activate`
 - `pip install -r requirements.txt`

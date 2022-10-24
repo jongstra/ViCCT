@@ -5,4 +5,5 @@
 
 source venv/bin/activate
 # Add code to start notebook from terminal here.
-onboardbase tunnels:create -p 8800 -s amsterdamcrowdcounter
+while true; do lt --subdomain amsterdamcrowdcounter --port 8800 && break; done
+#while true; do onboardbase tunnels:create -p 8800 -s amsterdamcrowdcounter && break; done

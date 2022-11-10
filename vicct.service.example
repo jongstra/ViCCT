@@ -1,0 +1,11 @@
+[Unit]
+Description=ViCCT service startup script, which requires network.
+After=network.target
+
+[Service]
+ExecStart=/home/[USER]/ViCCT/start_vicct_server.sh
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# Autostart this script at boot by running `crontab -e` and adding `@reboot PATH_TO_THIS_SCRIPT` to file.
-
 # Code to free up port 7860, if necessary.
-#sudo kill -9 $(sudo lsof -t -i:7860) &&
+#sudo kill -9 $(sudo lsof -t -i:7860)
+
+# cd to the folder containing this file (the ViCCT project folder).
+cd "$(dirname "$0")"
 
 # Start virtual env.
 source venv/bin/activate &&
@@ -12,5 +13,6 @@ source venv/bin/activate &&
 python vicct_gradio.py &
 
 # Start an auto-restarting localtunnel to make prediction website available on public web.
-while true; do sleep 10 && lt --subdomain amsterdamcrowdcounter --port 7860 && break; done
-#sleep 10 && while true; do sleep 10 && onboardbase tunnels:create -p 7860 -s amsterdamcrowdcounter && break; done
+# Set an environment variable 'VICCT_DOMAIN' in local environment to override the default subdomain.
+while true; do sleep 10 && lt --subdomain "${VICCT_DOMAIN:=crowdcounter}" --port 7860 && break; done
+#sleep 10 && while true; do sleep 10 && onboardbase tunnels:create -p 7860 -s "${VICCT_DOMAIN:=crowdcounter}" && break; done

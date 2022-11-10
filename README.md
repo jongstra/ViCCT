@@ -92,7 +92,6 @@ We want to set up a Python '[virtual environment](https://docs.python.org/3/libr
 
 
 ## Using the Generic ViCCT model to make predictions on individual images (Linux & Mac OSX)
-
 To use the model, make sure your terminal is in the ViCCT directory (if not already there):
 - `cd ViCCT` (run in terminal)
 
@@ -109,10 +108,23 @@ The value of **image_path** (in the third notebook cell) can be changed to point
 Finally, run all cells in the notebook to get a density map and crowd counting prediction for the image.
 
 
+## Running ViCCT on a self-hosted website (using [localtunnel](https://theboroer.github.io/localtunnel-www/)).
+- Set an environment variable `VICCT_DOMAIN` to define a subdomain for your website:
+  - `export VICCT_DOMAIN='mydomain'` (can be added to your ~/.bashrc file).
+- run `./start_vicct_server.sh`.
+-----
+- To enable autostart at boot:
+  - `sudo cp vicct_service.example /etc/systemd/system/vicct.service`
+  - `sudo gedit /etc/systemd/system/vicct.service`, and modify the `ExecStart` line so that it points at the **full path** of your `start_vicct_server.sh` file.
+  - Save the file.
+  - Run `sudo systemctl daemon-reload`.
+  - Run `sudo systemctl enable vicct`.
+  - The service should now be auto-started at boot.
+  - You can monitor the service output by running `sudo journalctl -u vicct.service`.
+
+
 # Acknowledgements
-
 The code in this repository is heavily inspired by, and uses parts of, the Crowd Counting Code Framework ([`C^3-Framework`](https://github.com/gjy3035/C-3-Framework)). I also use and extend the code from the DeiT [`repository`](https://github.com/facebookresearch/deit) repository for the ViCCT models.
-
 
 Important papers for this repository:
  - C^3-Framework [`paper`](https://arxiv.org/abs/1907.02724)

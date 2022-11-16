@@ -206,7 +206,7 @@ def normalize_image_orientation(img):
     try:
         exif = img.getexif()
         orientation = dict(exif.items())[274]  # 274 is the exif key for image orientation.
-    except (KeyError) as e:
+    except (KeyError, AttributeError) as e:
         return img
 
     # Rotate image to normal orientation.
@@ -231,6 +231,11 @@ def normalize_image_orientation(img):
 def count_people(image_input):
     """Count the amount of people in an image. Return the resulting density map image, overlay image, and count."""
 
+    # Catch situation where input image is of type None.
+    if not image_input:
+        return None, None, None
+
+    # Set start time.
     t0 = datetime.datetime.now().astimezone(timezone('Europe/Amsterdam'))
 
     # Normalize image orientation.
